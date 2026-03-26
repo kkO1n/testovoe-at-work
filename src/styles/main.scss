@@ -352,7 +352,7 @@ input {
   padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .settings-card__image {
@@ -369,6 +369,10 @@ input {
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  li {
+    line-height: 34px;
+  }
 }
 
 .settings-card__category {

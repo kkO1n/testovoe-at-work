@@ -57,6 +57,7 @@
   justify-content: center;
   gap: 3px;
   padding: 0;
+  transition: transform 0.12s ease;
 }
 
 .menuTrigger span {
@@ -64,6 +65,19 @@
   height: 4px;
   border-radius: 999px;
   background: var(--color-text-primary);
+  transition: background-color 0.18s ease;
+}
+
+.menuTrigger:hover span {
+  background: var(--color-accent);
+}
+
+.menuTrigger:active {
+  transform: scale(0.94);
+}
+
+.menuTrigger:active span {
+  background: #5d5d5d;
 }
 
 .menuList {
@@ -85,12 +99,28 @@
   padding: 10px 12px;
   background: #fff;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  transition:
+    color 0.18s ease,
+    background-color 0.18s ease;
 }
 
 .menuList button:hover {
-  background: #f2f8fa;
-  color: var(--color-text-primary);
+  color: var(--color-accent);
+  background: #fff;
+}
+
+.menuList button:active {
+  color: #5d5d5d;
+  background: #f5f5f5;
+}
+
+.menuActionSingle {
+  min-width: 180px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+  padding: 12px 16px;
 }
 
 .company {

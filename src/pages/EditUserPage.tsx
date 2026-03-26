@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import arrowLeftIcon from "../assets/icons/arrow-left.png";
 import { Loader } from "../components/Loader";
 import { SuccessModal } from "../components/SuccessModal";
 import styles from "./EditUserPage.module.scss";
-import type { EditUserFormData } from "./edit-user/model/editUserForm";
+import { normalizePhone, type EditUserFormData } from "./edit-user/model/editUserForm";
 import { useEditUserFormModel } from "./edit-user/model/useEditUserFormModel";
 import { useEditUserQuery } from "./edit-user/model/useEditUserQuery";
 import { useEditUserStoreModel } from "./edit-user/model/useEditUserStoreModel";
@@ -54,7 +55,7 @@ export const EditUserPage = () => {
   return (
     <div className={`container ${styles.editPage}`}>
       <Link className={styles.back} to="/">
-        <span aria-hidden="true">←</span>
+        <img className={styles.backIcon} src={arrowLeftIcon} alt="" aria-hidden="true" />
         <span>Назад</span>
       </Link>
 
@@ -105,12 +106,11 @@ export const EditUserPage = () => {
               <span>Телефон</span>
               <input
                 type="text"
-                inputMode="numeric"
+                inputMode="tel"
                 {...register("phone", {
                   onChange: (event) => {
-                    event.target.value = String(event.target.value).replace(
-                      /\D/g,
-                      "",
+                    event.target.value = normalizePhone(
+                      String(event.target.value),
                     );
                   },
                 })}
@@ -133,7 +133,7 @@ export const EditUserPage = () => {
             </label>
 
             <button
-              className={styles.submit}
+              className={`primary-pill ${styles.submit}`}
               type="submit"
               disabled={isSubmitting}
             >

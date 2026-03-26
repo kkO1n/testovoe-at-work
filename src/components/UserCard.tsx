@@ -67,47 +67,50 @@ export const UserCard = ({
 
               {isMenuOpen && (
                 <div className={styles.menuList}>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onEdit(user.id);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    Редактировать
-                  </button>
-
                   {isArchived ? (
                     <button
                       type="button"
+                      className={styles.menuActionSingle}
                       onClick={() => {
                         onActivate(user.id);
                         setIsMenuOpen(false);
                       }}
                     >
-                      Сделать активным
+                      Активировать
                     </button>
                   ) : (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onArchive(user.id);
-                        setIsMenuOpen(false);
-                      }}
-                    >
-                      Архивировать
-                    </button>
-                  )}
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onEdit(user.id);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Редактировать
+                      </button>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onHide(user.id);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    Скрыть
-                  </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onArchive(user.id);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Архивировать
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onHide(user.id);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Скрыть
+                      </button>
+                    </>
+                  )}
                 </div>
               )}
             </div>

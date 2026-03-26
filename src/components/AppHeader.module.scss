@@ -64,12 +64,14 @@
   border: 0;
   background: transparent;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
+  border-radius: 8px;
+  transition: background-color 0.18s ease;
 }
 
 .iconImage {
@@ -77,6 +79,16 @@
   height: 20px;
   display: block;
   object-fit: contain;
+  transition: filter 0.18s ease, transform 0.12s ease;
+}
+
+.iconButton:hover .iconImage {
+  filter: invert(54%) sepia(57%) saturate(982%) hue-rotate(146deg) brightness(92%) contrast(95%);
+}
+
+.iconButton:active .iconImage {
+  filter: grayscale(1) brightness(0.42);
+  transform: scale(0.93);
 }
 
 .profile {

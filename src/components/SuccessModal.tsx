@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import cancelIcon from '../assets/icons/cancel.png';
 import successCheckIcon from '../assets/icons/success-check-icon.png';
 import styles from './SuccessModal.module.scss';
 
@@ -21,7 +22,7 @@ export const SuccessModal = ({ isOpen, onClose }: SuccessModalProps) => {
     return null;
   }
 
-    return (
+  return (
     <div
       className={styles.overlay}
       role="presentation"
@@ -33,7 +34,7 @@ export const SuccessModal = ({ isOpen, onClose }: SuccessModalProps) => {
     >
       <div className={styles.card} role="dialog" aria-modal="true" aria-label="Изменения сохранены">
         <button className={styles.close} type="button" onClick={onClose} aria-label="Закрыть">
-          ×
+          <img className={styles.closeIcon} src={cancelIcon} alt="" aria-hidden="true" />
         </button>
         <div className={styles.icon} aria-hidden="true">
           <img className={styles.iconImage} src={successCheckIcon} alt="" />

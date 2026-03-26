@@ -17,6 +17,35 @@
   color: #c52929;
 }
 
+.primary-pill {
+  border: 0;
+  border-radius: 50px;
+  background: var(--color-text-primary);
+  color: var(--color-surface);
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.12s ease;
+}
+
+.primary-pill:hover {
+  background: #ececec;
+  color: var(--color-text-primary);
+}
+
+.primary-pill:active {
+  background: #d9d9d9;
+  color: var(--color-text-primary);
+  transform: scale(0.98);
+}
+
+.primary-pill:disabled {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+
 @media (max-width: 768px) {
   .container {
     width: min(343px, calc(100% - 32px));

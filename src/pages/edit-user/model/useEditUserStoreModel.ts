@@ -14,7 +14,11 @@ export const useEditUserStoreModel = (user: UserApi | undefined) => {
       return undefined;
     }
 
-    return mergeEditable(user, editsById[user.id]);
+    const merged = mergeEditable(user, editsById[user.id]);
+    return {
+      ...merged,
+      phone: normalizePhone(merged.phone),
+    };
   }, [editsById, user]);
 
   const save = (values: EditUserFormData) => {

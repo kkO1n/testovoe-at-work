@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import type { EditableUser } from '../../../types/user';
-import { editUserSchema, emptyEditUserForm, type EditUserFormData } from './editUserForm';
+import { editUserSchema, emptyEditUserForm, normalizePhone, type EditUserFormData } from './editUserForm';
 
 export const useEditUserFormModel = (mergedEditable: EditableUser | undefined) => {
   const form = useForm<EditUserFormData>({
@@ -16,7 +16,10 @@ export const useEditUserFormModel = (mergedEditable: EditableUser | undefined) =
       return;
     }
 
-    form.reset(mergedEditable);
+    form.reset({
+      ...mergedEditable,
+      phone: normalizePhone(mergedEditable.phone),
+    });
   }, [form, mergedEditable]);
 
   return form;
